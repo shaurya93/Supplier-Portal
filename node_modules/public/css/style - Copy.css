@@ -1,0 +1,103 @@
+.drop ul {
+  position: absolute;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+}
+.drop ul li {
+  display: block;
+  width: 100%;
+}
+.drop ul li a {
+  width: 100%;
+  display: inline-block;
+  white-space: pre;
+  box-sizing: border-box;
+}
+
+.drop:hover ul {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.card-1 {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  margin: 3rem 3rem 3rem 3rem;}
+#advert3
+{
+  margin: 0rem 0rem 4rem 0rem;
+ }
+
+form { padding: 2.5em; }
+
+.group{ position: relative; margin-bottom: 2.4em;}
+
+label{
+color: #d2d2d2;
+font-size: 15px;
+font-weight: normal;
+font-family: sans-serif;
+position: absolute;
+pointer-events: none;
+top: 10px;
+transition: 0.2s ease all;
+}
+
+input{
+color: #909090;
+font-size: 15px;
+padding: 10px 0px 10px 0px;
+display: block;
+outline: none;
+border: none;
+width: 300px;
+border-bottom: 30px solid #d2d2d2;
+}
+
+
+
+
+.bar {
+position: relative; display: block; width: 300px;}
+
+.bar:before, .bar:after{
+content: "";
+height: 2px;
+width: 0;
+bottom: -1px;
+position: absolute;
+background: #B388FF;
+transition: 0.2s ease all;
+}
+.bar:before{left: 50%;}
+.bar:after{right: 50%;}
+
+
+
+input:valid { border-bottom: 1px solid #4fc24f;}
+
+input-valid ~ .bar:before,
+input-valid ~ .bar:after {
+background-color: #4fc24f !important;
+}
+
+input:focus ~ label,
+input.used ~ label {
+top: -20px;
+font-size: 13px;
+color: #B388FF;
+}
+
+input:valid ~ label,
+input:valid.used ~label {
+color: #4fc24f;
+}
+
+input:focus ~ .bar:before,
+input:focus ~ .bar:after{
+width: 50%;
+}

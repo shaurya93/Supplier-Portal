@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<html class="js no-touch">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="HandheldFriendly" content="True">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Design Tamplate">
+<meta name="csrf-token">
+<meta name="author" content="Honglio">
+
+<title>Dashboard</title>
+<link rel="stylesheet" href="css/lib/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="css/lib/flat-ui.css" type="text/css">
+<link rel="stylesheet" href="css/base.css" type="text/css">
+<link rel="stylesheet" href="css/style-green.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<link rel="stylesheet" href="css/materialize.css" type="text/css">
+
+
+<!--
+<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="css/lib/material.css">
+<link rel="stylesheet" href="css/lib/font-awesome.min.css" type="text/css"> 
+<link rel="stylesheet" href="css/lib/ripples.css">
+-->
+<!-- Slider -->
+<link rel="stylesheet" href="rs-plugin/css/settings.css" type="text/css">
+<link rel="stylesheet" href="showbizpro/css/settings.css" type="text/css" media="screen">
+<!--[if lt IE 9]>
+<script src="js/vendors/html5shiv.js"></script>
+<![endif]-->
+<!--[if lt IE 10]>
+<script src="js/vendors/jquery.placeholder.js"></script>
+<![endif]-->
+<!-- JS -->
+<!-- <script type="text/javascript" src="js/vendors/modernizr.custom.js"></script>
+<script type="text/javascript" src="js/vendors/toucheffects.js"></script>
+<script type="text/javascript" src="js/vendors/jquery.js"></script>
+<script type="text/javascript" src="js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="js/vendors/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="js/vendors/bootstrap.js"></script>
+<script type="text/javascript" src="js/vendors/material.js"></script>
+<script type="text/javascript" src="js/vendors/ripples.js"></script>
+<script type="text/javascript" src="js/vendors/less-1.7.5.min.js"></script> -->
+<!--
+<style>
+
+
+.card-2 {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  width:280px;
+  height:300px;}
+  
+  .demo {
+  width: 300px;
+  padding: 20px;
+  margin: 0 auto;
+  top: 50%;
+  margin-top: -2em;
+  position: absolute;
+  right: 0;
+  left: 0;
+  overflow:hidden;
+ 
+}
+
+.card-1 {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
+  .demo {
+  width: 200px;
+  padding: 20px;
+  margin: 0 auto;
+  top: 50%;
+  margin-top: -2em;
+  position: absolute;
+  right: 0;
+  left: 0;
+  overflow:hidden;
+ 
+}
+.mdl-selectfield label {display: none;}
+/* Use custom arrow */
+.mdl-selectfield select {appearance: none}
+.mdl-selectfield {
+  font-family: 'Roboto','Helvetica','Arial',sans-serif;
+  position: relative;
+    &:after {
+        position: absolute;
+        top: 0.75em;
+        right: 0.5em;
+        /* Styling the down arrow */
+        width: 0;
+        height: 0;
+        padding: 0;
+        content: '';
+        border-left: .25em solid transparent;
+        border-right: .25em solid transparent;
+        border-top: .375em solid $select-border-color;
+        pointer-events: none;
+    }
+}
+
+</style>
+-->
+<script src="js/skel.min.js">
+		{
+			prefix: 'css/style',
+			preloadStyleSheets: true,
+			resetCSS: true,
+			boxModel: 'border',
+			grid: { gutters: 30 },
+			breakpoints: {
+				wide: { range: '1200-', containers: 1140, grid: { gutters: 50 } },
+				narrow: { range: '481-1199', containers: 960 },
+				mobile: { range: '-480', containers: 'fluid', lockViewport: true, grid: { collapse: true } }
+			}
+		}
+</script>
+</head>
+
+<body>
+	<div id="header_container">		
+		<div class="container">
+			<div id="header" class="row1">
+				<nav class="navbar navbar-fixed-top navbar-inverse">
+					<div class="container">
+						<table >
+							<tr>
+								<td width="25%">
+									<img class="8u" src="img/sp.png"/>
+								</td>
+								<td width="55%">
+									<ul class="nav">
+									<li class="drop"><a style="padding:0px 15px;" href="http://127.0.0.1:3000/dashboard?vendorid=<%= v_id%>">Home</a></li>
+									  <li class="drop" style="padding: 0px 15px;">Order
+										<ul class="nav">
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=Pending Acknowledge">Pending Acknowledge</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=Acknowledged">Acknowledged</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=Pending Delivery">Pending Delivery</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=Pending Billing">Pending Bill</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=Fully Billed">Fully Billed</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=allorder">All Orders</a></li>
+										</ul>
+									  </li>
+									  <li class="drop" style="padding: 0px 15px;">Packing List
+										<ul class="nav">
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/packingliststatusview?status=Ready to Ship">Ready to Ship</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/packingliststatusview?status=Shipped">Shipped</a></li>
+										</ul>
+									  </li>
+									  <li class="drop" style="padding: 0px 15px;">Payables
+										<ul class="nav">
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/billlistview">Bills</a></li>
+										</ul>
+									  </li>
+									  <li class="drop" style="padding: 0px 15px;">My Account
+										<ul class="nav">
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/profileview?vendorid=1413">View/Update Profile</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/changepassword?vendorid=1413">Change Password</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/signout">Sign Out</a></li>
+										</ul>
+									  </li>
+
+									</ul>	
+								</td>
+								<td width="20%">
+									<img class="8u" src="img/cognizant-logo.png"/>
+								</td>
+							</tr>
+						</table>						
+					</div>
+				</nav>
+			</div>
+		</div>	
+    </div>
+
+	
+	
+	<main>
+	    <div >
+		   <div id="" class="container-fluid navbar-inverse modul-bt-one" align="center">
+			<h4>&nbsp;</h4>
+		</div>
+		<div id="advert3" align="left" style="background-image:url(img10.png); color:#0D47A1;">
+                       
+            <div  class="transparent" style="overflow:scroll; background-color:white;">
+       <div class="row1"></div>	  
+	 
+	   
+	   
+       <div class="container-fluid card-1" style="background-color:white;" >
+	 
+      
+							<!--<div class="row" style=" font-size: 18pt; font-weight:bold; color:blue;">Search Transaction</div>-->
+      	   
+	  <table style="background-color:white; width:100%;">
+	  <tr>
+	 <form method="POST">
+											<td style="width:20%; border-style: none;">
+												<div class="input-field"> <!-- class="col s12 m4 l9"-->
+													<input id="your_searchid" type="text" class="validate" name="your_searchid">
+													<label for="your_searchid" >Transaction Id</label>
+												</div>
+											</td>
+											<td style="width:20%; border-style: none;">
+												<div> <!-- class="col s12 m4 l9"-->
+													<div class="mdl-selectfield">
+														<label>Standard Select</label>
+														<select class="browser-default" name="tran" >
+															<option value="" disabled selected>Choose your option</option>
+															<option name="purchase_order_tbl">Purchase Order</option>
+															<option name="packing_list_tbl">Packing List</option>
+														</select>
+													</div>
+												</div>
+											</td>
+											<td style="width:20%; text-align:left;">
+												<div> <!-- class="col s1 m4 l3"-->
+													<div >
+														<button class="btn btn-primary btn-sm" type="submit" name="contact_submitted" value="Search";>Search</button>
+													</div>
+												</div>
+											</td>
+	 </form>
+	
+	 </tr>
+	 </table>
+	 </div>
+			 <div class="row1">
+	   
+	   
+
+		<div class="col s12" style="width:100%;">
+		
+		        <div class="row1"></div>
+				<div class="row1"></div>
+               <div class="container-fluid card-1" style="background-color:white;">
+			   
+			 <div class="row1" style=" font-size: 18pt; font-weight:bold; color:blue;">Purchase Order</div>
+             <div class="row1">
+			 
+			 
+			 <div class="col s12 m4 l3">
+			 
+			      <div class="card-elevation" >
+                 <div class="card blue-grey darken-1">                    
+				  <div class="card-title">
+                 
+                 <p style="text-align:center;"> <span class="card-title white-text" >All</span> </p>
+				 </div>
+				 
+				 
+				 
+                 <div class="card-action">
+                  <p style="text-align:center;"><span style="font-size: 30pt; color:orange;"><%=po_all_count_rend%></span></p>
+			   
+                </div>
+               </div>
+             </div>
+                </div>  
+                  
+                
+                
+		    
+		    <div class="col s12 m4 l3">
+			      <div class="card-elevation">
+                 <div class="card blue-grey darken-1">                    
+				  <div class="card-title">
+                 
+                 <p style="text-align:center;"> <span class="card-title white-text;" >Pending ACK</span> </p>
+				 </div>
+				 
+				 
+				 
+                 <div class="card-action">
+                  <p style="text-align:center;"><span style="color:orange; font-size: 30pt;"><%=po_pendingAck_count_rend%></span></p>
+			   
+                </div>
+               </div>
+             </div>
+                </div>  
+           <div class="col s12 m4 l3">
+			      <div class="card-elevation ">
+                 <div class="card blue-grey darken-1">                    
+				  <div class="card-title">
+                 
+                 <p style="text-align:center;"> <span class="card-title white-text" >Acknowledged</span> </p>
+				 </div>
+				 
+				 
+				 
+                 <div class="card-action">
+                  <p style="text-align:center;"><span style="color:orange; font-size: 30pt;"><%=po_Ack_count_rend%></span></p>
+			   
+                </div>
+               </div>
+             </div>
+                </div>  
+		 </div>
+		
+		<div class="row1">
+			 
+		    <div class="col s12 m4 l3">
+		      <div class="card-elevation">
+                 <div class="card blue-grey darken-1">                    
+				  <div class="card-title">
+                 
+                 <p style="text-align:center;"> <span class="card-title white-text" >Pending Delivery</span> </p>
+				 </div>
+				 
+				 
+				 
+                 <div class="card-action">
+                  <p style="text-align:center;"><span style="color:orange; font-size: 30pt;"><%=po_pendingDelivery_count_rend%></span></p>
+			   
+                </div>
+               </div>
+             </div>
+		    </div>
+           <div class="col  s12 m4 l3">
+	          <div class="card-elevation">
+                 <div class="card blue-grey darken-1">                    
+				  <div class="card-title">
+                 
+                 <p style="text-align:center;"> <span class="card-title white-text" >Pending Bill</span> </p>
+				 </div>
+				 
+				 
+				 
+                 <div class="card-action">
+                  <p style="text-align:center;"><span style="color:orange; font-size: 30pt;"><%=po_pendingBill_count_rend%></span></p>
+			   
+                </div>
+               </div>
+             </div>
+		 </div>
+		  <div class="col  s12 m4 l3">
+	          <div class="card-elevation">
+                 <div class="card blue-grey darken-1">                    
+				  <div class="card-title">
+                 
+                 <p style="text-align:center;"> <span class="card-title white-text" >Fully Billed</span> </p>
+				 </div>
+				 
+				 
+				 
+                 <div class="card-action">
+                  <p style="text-align:center;"><span style="color:orange; font-size: 30pt;"><%=po_fully_billed_count_rend%></span></p>
+			   
+                </div>
+               </div>
+             </div>
+		 </div>
+		</div>
+</div>
+<div class="row1"></div>
+  <div class=" container-fluid card-1 " style="background-color:white";>
+		<div class="row1" style="font-size: 18pt; font-weight:bold; color:green;">Packing List</div>
+		 
+		 <div class="row1">
+			
+		    <div class="col s12 m4 l3">
+		      <div class="card-elevation ">
+                 <div class="card blue-grey darken-1">                    
+				  <div class="card-title">
+                 
+                 <p style="text-align:center;"> <span class="card-title white-text" >Ready to Ship</span> </p>
+				 </div>
+				 
+				 
+				 
+                 <div class="card-action">
+                  <p style="text-align:center;"><span style="color:orange; font-size: 30pt;"><%=pl_readyToShip_count_rend%></span></p>
+			   
+                </div>
+               </div>
+             </div>
+		    </div>
+           <div class="col  s12 m4 l3">
+	           <div class="card-elevation">
+                 <div class="card blue-grey darken-1">                    
+				  <div class="card-title">
+                 
+                 <p style="text-align:center;"> <span class="card-title white-text" >Shipped</span> </p>
+				 </div>
+				 
+				 
+				 
+                 <div class="card-action">
+                  <p style="text-align:center;"><span style="color:orange; font-size: 30pt;"><%=pl_shipped_count_rend%></span></p>
+			   
+                </div>
+               </div>
+             </div>
+		 </div>
+		 </div>
+		
+		</div>
+		<div class="row1"></div>
+		<div class=" container-fluid card-1" style="background-color:white;">
+		<div class="row1" style="font-size: 18pt; font-weight:bold;">Bills</div>
+		 <div class="row1">
+		  	 
+		    <div class="col s12 m4 l3">
+		     <div class="card-elevation">
+                 <div class="card blue-grey darken-1">                    
+				  <div class="card-title">
+                 
+                 <p style="text-align:center;"> <span class="card-title white-text" >Bills</span> </p>
+				 </div>
+				 
+				 
+				 
+                 <div class="card-action">
+                  <p style="text-align:center;"><span style="color:orange; font-size: 30pt;"><%=bill_all_count_rend%></span></p>
+			   
+                </div>
+               </div>
+             </div>
+		    </div>
+</div>
+   
+		</div>
+		<div class="row1"> .</div
+		<div class="row1"></div>
+      </div>
+	  </div>
+			
+			
+			</div>
+			</div>
+ </div>         
+</main>
+
+<footer>
+	<section id="footer" style="color:white;">
+		<div class="container-fluid navbar-fixed-bottom  navbar-inverse modul-bt-one" align="center">
+			<h1 style="color:white;"></h1>
+			<p style="color:white; font-size: 8pt; text-align:right;"><span style="float:left;"><a style="font-size: 8pt;" href="http://www.cognizant.com">www.Cognizant.com</a></span> &copy; Cognizant Technology Solutions &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		</div>
+	</section>
+</footer>
+<script>
+$(document).ready(function(){
+$('input').blur(function(){
+if($(this).val())
+$(this).addClass('used');
+else
+$(this).removeClass('used');
+});
+});
+</script>
+<script type="text/javascript" src="js/vendors/jquery.slimscroll.min.js"></script><script type="text/javascript" src="js/vendors/jquery.scrollUp.js"></script><script type="text/javascript" src="js/vendors/jquery.stickup.min.js"></script><script type="text/javascript" src="js/application.js"></script><script type="text/javascript">//enabling stickUp on the '.navbar-wrapper' class
+$(function() {
+  $('#top-nav').stickUp({
+    parts: {
+      0: 'wrapper',
+      1: 'service1',
+      2: 'advert1',
+      3: 'portfolio',
+      4: 'advert2',
+      5: 'wrapper2',
+      6: 'advert3',
+      7: 'price',
+      8: 'advert4',
+      9: 'client',
+      10: 'advert5'
+    },
+    itemClass: 'menuItem',
+    itemHover: 'active',
+    topMargin: 'auto'
+  });
+});
+
+// In mobile browser, navbar collapse when click on 'a'.
+$('.navbar.navbar-inverse.navbar-static-top a').click(function() {
+  $('.navbar-collapse').addClass('hideClass');
+});
+
+
+$('.navbar.navbar-inverse.navbar-static-top a').click(function() {
+  $('.navbar-collapse').addClass('collapse');
+});
+
+
+$('.navbar.navbar-inverse.navbar-static-top a').click(function() {
+  $('.navbar-collapse').removeClass('in');
+});
+
+$('.navbar-toggle').click(function() {
+  $('.navbar-collapse').removeClass('hideClass');
+});
+
+// Smoth page scroll
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top - 45
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});</script><script type="text/javascript" src="js/vendors/jquery.mixitup.js"></script><script type="text/javascript" src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script><script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script><script type="text/javascript" src="showbizpro/js/jquery.themepunch.showbizpro.min.js"></script><script type="text/javascript">jQuery(document).ready(function() {
+  //- Slider Options
+  jQuery('.tp-banner').revolution({
+    delay: 90000,
+    startwidth: 1170,
+    startheight: 500,
+    hideThumbs: 10,
+    fullScreen: "on",
+    fullScreenAlignForce: "on",
+    fullScreenOffsetContainer: ".navigation-menu"
+  });
+  jQuery('.tp-banner-two').revolution({
+    delay: 9000000,
+    startwidth: 1200,
+    startheight: 356,
+    hideThumbs: 200,
+    thumbWidth: 100,
+    thumbHeight: 50,
+    thumbAmount: 3,
+    navigationType: "none", // use none, bullet or thumb
+    soloArrowLeftHalign: "left", // left,center,right
+    soloArrowLeftValign: "center", // top,center,bottom
+    soloArrowLeftHOffset: 0, // offset position from aligned position
+    soloArrowLeftVOffset: 0, // offset position from aligned position
+    soloArrowRightHalign: "right", // left,center,right
+    soloArrowRightValign: "center", // top,center,bottom
+    soloArrowRightHOffset: 0, // offset position from aligned position
+    soloArrowRightVOffset: 0, // offset position from aligned position
+    touchenabled: "on",
+    onHoverStop: "on"
+  }); //ready
+
+  //- Portfolio Filter
+  jQuery('#Grid').mixitup();
+
+  //- Carusel Slider
+  jQuery('#example6').showbizpro({
+    dragAndScroll: "off",
+    visibleElementsArray: [4, 4, 1, 1],
+    carousel: "on",
+    entrySizeOffset: 0,
+    allEntryAtOnce: "off",
+    rewindFromEnd: "off",
+    autoPlay: "off",
+    delay: 2000,
+    speed: 500
+  });
+  jQuery('#example7').showbizpro({
+    dragAndScroll: "off",
+    visibleElementsArray: [2, 2, 1, 1],
+    carousel: "on",
+    entrySizeOffset: 0,
+    allEntryAtOnce: "off",
+    rewindFromEnd: "off",
+    autoPlay: "off",
+    delay: 2000,
+    speed: 500
+  });
+});
+</script></body></html>

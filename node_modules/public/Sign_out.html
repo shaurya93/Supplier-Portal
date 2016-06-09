@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Logout</title>
+		
+	
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600|Source+Code+Pro" rel="stylesheet" />
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>		
+		<script src="js/skel.min.js">
+		{
+			prefix: 'css/style',
+			preloadStyleSheets: true,
+			resetCSS: true,
+			boxModel: 'border',
+			grid: { gutters: 30 },
+			breakpoints: {
+				wide: { range: '1200-', containers: 1140, grid: { gutters: 50 } },
+				narrow: { range: '481-1199', containers: 960 },
+				mobile: { range: '-480', containers: 'fluid', lockViewport: true, grid: { collapse: true } }
+			}
+		}
+		</script>
+		<script>
+			$(function() {
+
+				// Note: make sure you call dropotron on the top level <ul>
+				$('#main-nav > ul').dropotron({ 
+					offsetY: -10 // Nudge up submenus by 10px to account for padding
+				});
+
+			});
+		</script>
+		<script>
+			// DOM ready
+			$(function() {
+    
+			// Create the dropdown base
+			$("<select />").appendTo("nav");
+   
+			// Create default option "Go to..."
+			$("<option />", {
+				"selected": "selected",
+				"value"   : "",
+				"text"    : "Menu"
+			}).appendTo("nav select");
+   
+			// Populate dropdown with menu items
+			$("nav a").each(function() {
+			var el = $(this);
+			$("<option />", {
+				"value"   : el.attr("href"),
+				"text"    : el.text()
+			}).appendTo("nav select");
+			});
+   
+			// To make dropdown actually work
+			// To make more unobtrusive: http://css-tricks.com/4064-unobtrusive-page-changer/
+			$("nav select").change(function() {
+				window.location = $(this).find("option:selected").val();
+			});
+  
+			});
+		</script>
+		
+		<script>
+		
+		// validate login credentials by calling restlet
+		
+		function validate_login()
+		{
+			
+			//window.location.href("index.html?vendor_name="+vendor_name);
+			
+			 WshShell = new ActiveXObject("Wscript.Shell"); //Create WScript Object
+			 WshShell.run("c://nodeapp/runserver.bat"); 
+			 
+			 
+			
+			window.location.href("login.html");
+
+			
+
+}
+		
+		</script>
+</head>
+
+<body>
+
+<div id="outerdiv">
+			
+	<div class="topborder"></div>
+	<div id="headerdiv">
+		<div id="headerinner">
+			<div id="headercontent">
+				<div class="logo"><img src="images/Header-documentFlow.gif" width="205" height="87" alt="" /></div>
+				<div class="cognizantlogo"><img src="images/cognizant-logo.png" width="173" height="55" alt="" /></div>
+			</div>
+		</div>
+	</div>	
+
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+  <h4> You are logout! Please <a href="login.html">Click Here</a> to login again</h4>
+  </div>
+</div>
+
+<!--<div id="header" class="row">
+	<div class="topborder"></div>
+	<h4> You are logout! Please <a href="login.html">Click Here</a> to login again</h4>
+</div>	
+-->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+    	
+
+
+
+
+
+		
+
+
+
+
+			
+
+
+
+
+
+		
+
+	
+
+
+
+
+						
+					
+		
+		
+	
+		
+		
+
+
+
+
+		
+		
+
+
+

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="js no-touch">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="HandheldFriendly" content="True">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Design Tamplate">
+<meta name="csrf-token">
+<meta name="author" content="Honglio">
+
+<title>Supplier Portal</title>
+<link rel="stylesheet" href="css/lib/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="css/lib/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="css/lib/flat-ui.css" type="text/css">
+<link rel="stylesheet" href="css/lib/material.css">
+<link rel="stylesheet" href="css/lib/ripples.css">
+<link rel="stylesheet" href="css/base.css" type="text/css">
+<link rel="stylesheet" href="css/style-green.css" type="text/css">
+<link rel="alternate stylesheet" type="text/css" href="css/style-blue.css" title="blue" media="all">
+<link rel="alternate stylesheet" type="text/css" href="css/style-black.css" title="black" media="all">
+<link rel="alternate stylesheet" type="text/css" href="css/style-cyan.css" title="cyan" media="all">
+<link rel="alternate stylesheet" type="text/css" href="css/style-green.css" title="green" media="all">
+<link rel="alternate stylesheet" type="text/css" href="css/style-orange.css" title="orange" media="all">
+<link rel="alternate stylesheet" type="text/css" href="css/style-pink.css" title="pink" media="all">
+<link rel="alternate stylesheet" type="text/css" href="css/style-purple.css" title="purple" media="all">
+<link rel="alternate stylesheet" type="text/css" href="css/style-red.css" title="red" media="all">
+
+<!--<link rel="stylesheet" href="css/style.css" type="text/css">
+<link rel="stylesheet" href="css/materialize.min.css" type="text/css">-->
+<link rel="stylesheet" href="css/materialize.css" type="text/css">
+<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+<!-- Slider -->
+<link rel="stylesheet" href="rs-plugin/css/settings.css" type="text/css">
+<link rel="stylesheet" href="showbizpro/css/settings.css" type="text/css" media="screen">
+<!--[if lt IE 9]>
+<script src="js/vendors/html5shiv.js"></script>
+<![endif]-->
+<!--[if lt IE 10]>
+<script src="js/vendors/jquery.placeholder.js"></script>
+<![endif]-->
+<!-- JS -->
+<script type="text/javascript" src="js/vendors/modernizr.custom.js"></script>
+<script type="text/javascript" src="js/vendors/toucheffects.js"></script>
+<script type="text/javascript" src="js/vendors/jquery.js"></script>
+<script type="text/javascript" src="js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="js/vendors/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="js/vendors/bootstrap.js"></script>
+<script type="text/javascript" src="js/vendors/material.js"></script>
+<script type="text/javascript" src="js/vendors/ripples.js"></script>
+<script type="text/javascript" src="js/vendors/less-1.7.5.min.js"></script>
+
+<style>
+form {
+	width: 380px;
+	margin: 4em auto;
+	padding: 3em 2em 2em 2em;
+	
+	
+}
+
+.group{ position: relative; margin-bottom: 2.4em;}
+
+label{
+color: #d2d2d2;
+font-size: 15px;
+font-weight: normal;
+font-family: sans-serif;
+position: absolute;
+pointer-events: none;
+top: 10px;
+transition: 0.2s ease all;
+}
+
+input{
+color: #909090;
+font-size: 15px;
+padding: 10px 0px 10px 0px;
+display: block;
+outline: none;
+border: none;
+width: 300px;
+border-bottom: 30px solid #d2d2d2;
+}
+
+
+
+
+.bar {
+position: relative; display: block; width: 300px;}
+
+.bar:before, .bar:after{
+content: "";
+height: 2px;
+width: 0;
+bottom: -1px;
+position: absolute;
+background: #B388FF;
+transition: 0.2s ease all;
+}
+.bar:before{left: 50%;}
+.bar:after{right: 50%;}
+
+
+
+input:valid { border-bottom: 1px solid #4fc24f;}
+
+input-valid ~ .bar:before,
+input-valid ~ .bar:after {
+background-color: #4fc24f !important;
+}
+
+input:focus ~ label,
+input.used ~ label {
+top: -20px;
+font-size: 13px;
+color: #B388FF;
+}
+
+input:valid ~ label,
+input:valid.used ~label {
+color: #4fc24f;
+}
+
+input:focus ~ .bar:before,
+input:focus ~ .bar:after{
+width: 50%;
+}
+</style>
+
+</head>
+
+<body style="background-color:#8E24AA;">
+
+<header>
+		<section id="top-nav" style="z-index:100" class="navbar-wrapper">
+			<div class="container">
+				<div class="navwrapper">
+					<nav role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+						<div class="container">
+							<div class="navbar-header">
+								<button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle collapsed">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<span class="navbar-brand">SUPPLIER PORTAL</span>
+							</div>
+							<div id="navbar-collapse" class="collapse navbar-collapse">
+								
+								<div>
+								<span class="navbar-brand" href="#" style="float:right; color:black;">Cognizant</span><img style="float:right;" src="img/theme/cognizant-logo.png">
+							</div>	
+							</div>						
+						</div>
+					</nav>
+				</div>
+			</div>
+		</section>
+	</header>
+
+<main>
+					<div>
+					<ul>
+					<li data-transition="slotzoom-horizontal" data-slotamount="1" data-masterspeed="150">
+							
+							<div data-x="center" data-hoffset="0" data-y="center" data-voffset="-50" data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:100;transformOrigin:50% 0%;" data-customout="x:0;y:0;z:400;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 50%;" data-speed="300" data-start="70" data-easing="Back.easeInOut" data-endeasing="Back.easeInOut" data-endspeed="600" style="z-index: 11;" class="tp-caption mediumlarge_light_white customin customout hidden-xs">Supplier Portal Features</div>
+							
+							
+						</li>
+					</ul>
+					</div>	
+					
+						<div style="background-color:#e4e6e8;">
+						<br>
+						</div>			
+						<div id="" class="container-fluid navbar-inverse modul-bt-one" align="left">
+                <form id="contact" method="post">
+					<h1 style="color:white;" align="center">Login</h1>
+                    <div class="group">
+                            <input name="your_email" width="300px" type="email" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                            <label align="left">E-mail</label>
+							<span class="bar"></span>
+                        </div>
+						<div class="group">
+                            <input width="300px" name="your_password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                            <label align="left">Password</label>
+							<span class="bar"></span>
+						</div>
+                        
+						<div class="col offset-s7 s5" align="center">
+                            <button style="color:white; text-align:center;" class="btn waves-effect waves-light red darken-1" type="submit">Submit </button>
+							<a style="color:white;" class="red darken-1 btn btn-primary btn-sm" href="http://127.0.0.1:3000/login">Cancel</a>
+                        </div>
+						<div class="col offset-s7 s5" align="center">
+							<a style="color:white;" href="http://127.0.0.1:3000/changepassword">Forgot Password ?</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+					
+                </form>
+				</div>
+				
+				
+
+</main>
+<script>
+$(document).ready(function(){
+$('input').blur(function(){
+if($(this).val())
+$(this).addClass('used');
+else
+$(this).removeClass('used');
+});
+});
+</script>
+</body>
+</html>

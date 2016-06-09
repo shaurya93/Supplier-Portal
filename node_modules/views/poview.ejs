@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="js no-touch">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="HandheldFriendly" content="True">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Design Tamplate">
+<meta name="csrf-token">
+<meta name="author" content="Honglio">
+
+<title>PO View</title>
+<link rel="stylesheet" href="css/lib/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="css/lib/flat-ui.css" type="text/css">
+<link rel="stylesheet" href="css/base.css" type="text/css">
+<link rel="stylesheet" href="css/style-green.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<link rel="stylesheet" href="css/materialize.css" type="text/css">
+
+<!--
+<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="css/lib/material.css">
+<link rel="stylesheet" href="css/lib/font-awesome.min.css" type="text/css"> 
+<link rel="stylesheet" href="css/lib/ripples.css">
+-->
+<!-- Slider -->
+<link rel="stylesheet" href="rs-plugin/css/settings.css" type="text/css">
+<link rel="stylesheet" href="showbizpro/css/settings.css" type="text/css" media="screen">
+
+<!--start table components-->
+<link rel="stylesheet" href="css/jquery.dataTables.min.css" type="text/css">
+
+<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+<!--end table components-->
+
+<script>
+$(document).ready(function() {
+    $('table.display').DataTable();
+} );
+</script>
+
+<!--[if lt IE 9]>
+<script src="js/vendors/html5shiv.js"></script>
+<![endif]-->
+<!--[if lt IE 10]>
+<script src="js/vendors/jquery.placeholder.js"></script>
+<![endif]-->
+<!-- JS -->
+<!--
+<script type="text/javascript" src="js/vendors/modernizr.custom.js"></script>
+<script type="text/javascript" src="js/vendors/toucheffects.js"></script>
+<script type="text/javascript" src="js/vendors/jquery.js"></script>
+<script type="text/javascript" src="js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="js/vendors/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="js/vendors/bootstrap.js"></script>
+<script type="text/javascript" src="js/vendors/material.js"></script>
+<script type="text/javascript" src="js/vendors/ripples.js"></script>
+<script type="text/javascript" src="js/vendors/less-1.7.5.min.js"></script>
+-->
+<script src="js/skel.min.js">
+		{
+			prefix: 'css/style',
+			preloadStyleSheets: true,
+			resetCSS: true,
+			boxModel: 'border',
+			grid: { gutters: 30 },
+			breakpoints: {
+				wide: { range: '1200-', containers: 1140, grid: { gutters: 50 } },
+				narrow: { range: '481-1199', containers: 960 },
+				mobile: { range: '-480', containers: 'fluid', lockViewport: true, grid: { collapse: true } }
+			}
+		}
+		</script>
+</head>
+
+<body style="background-image:url(img10.png);">
+	<div id="header_container">		
+		<div class="container">
+			<div id="header" class="row">
+				<nav class="navbar navbar-fixed-top navbar-inverse">
+					<div class="container">
+						<table >
+							<tr>
+								<td width="25%">
+									<img class="8u" src="img/sp.png"/>
+								</td>
+								<td width="55%">
+									<ul class="nav">
+                                  <li class="drop"><a style="padding:0px 15px;" href="http://127.0.0.1:3000/dashboard?vendorid=<%= v_id%>">Home</a></li>
+									  <li class="drop" style="padding: 0px 15px;">Order
+										<ul class="nav">
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=Pending Acknowledge">Pending Acknowledge</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=Acknowledged">Acknowledged</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=Pending Delivery">Pending Delivery</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=Pending Billing">Pending Bill</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=Fully Billed">Fully Billed</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=allorder">All Orders</a></li>
+										</ul>
+									  </li>
+									  <li class="drop" style="padding: 0px 15px;">Packing List
+										<ul class="nav">
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/packingliststatusview?status=Ready to Ship">Ready to Ship</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/packingliststatusview?status=Shipped">Shipped</a></li>
+										</ul>
+									  </li>
+									  <li class="drop" style="padding: 0px 15px;">Payables
+										<ul class="nav">
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/billlistview">Bills</a></li>
+										</ul>
+									  </li>
+									  <li class="drop" style="padding: 0px 15px;">My Account
+										<ul class="nav">
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/profileview?vendorid=<%= v_id%>">View/Update Profile</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/changepassword?vendorid=<%= v_id%>">Change Password</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/signout">Sign Out</a></li>
+										</ul>
+									  </li>
+									</ul>	
+								</td>
+								<td width="20%">
+									<img class="8u" src="img/cognizant-logo.png"/>
+								</td>
+							</tr>
+						</table>						
+					</div>
+				</nav>
+			</div>
+		</div>	
+    </div>		
+  
+    
+    <main >
+        <div class="container-fluid navbar-inverse modul-bt-one" align="right" >
+            <h3>&nbsp;</h3>
+        </div>
+        <div id="advert3" align="left" style=" color:#0D47A1; min-width:900px;">     
+            <span id="spanclass" style="color:#0D47A1;" class="btn-default">&nbsp</span> 
+		<div  class="transparent" style="background-color:white; ">
+			<table width="100%" border="0" style="font-family: Arial, Helvetica; font-size: 9pt; background: white;">
+				<tr style="background-image:url(img10.png);">
+					<td colspan="6" style="font-size: 12pt; font-weight:bold; color: blue; text-align:right;"><a class="btn btn-primary btn-sm" href="http://127.0.0.1:3000/refresh?record_type=PurchaseOrder&po_status=none&po_id=<%= po_internal_id%>">Refresh</a> 
+					 <a class="btn btn-primary btn-sm" href="http://127.0.0.1:3000/packinglistcreate?po_ns_id=<%= po_internal_id%>">Create Packing List</a>
+					<% console.log("order_status "+order_status); if(order_status=="Pending Acknowledge") { %>
+					 <a class="btn btn-primary btn-sm" href="http://127.0.0.1:3000/acknowledgePO?po_ns_id=<%= po_internal_id%>">Acknowledge</a> 
+					<%}%>
+					 <a class="btn btn-primary btn-sm" href="http://127.0.0.1:3000/postatusview?po_status=allorder">List</a></td>
+				</tr>
+				<tr>
+					<td colspan="6" style=" font-size: 18pt; font-weight:bold; background: #AAA;">Purchase Order# <%= po_num%></td>
+				</tr>
+				<tr>
+					<td width="" colspan="3" align="left" ><span style="font-weight:bold;">Tax ID #:</span> 310107063743231</td>
+					<td width="" colspan="3" align="right"><span style="font-weight:bold;">Date Created:</span> <%= date_created%></td>
+				</tr>
+				<tr>
+					<td  width="" align="left" style="  font-weight:bold; background: #BBB; border-right: 1px solid #FFF;">Ship To</td>
+					<td  width="" align="left" style="  font-weight:bold; background: #BBB; border-right: 1px solid #FFF;">Ex Factory Date</td>
+					<td  width="" align="left" style="  font-weight:bold; background: #BBB; border-right: 1px solid #FFF;">WH Arrival Date</td>
+					<td  width="" align="left" style="  font-weight:bold; background: #BBB; border-right: 1px solid #FFF;">Delivery Method</td>
+					<td  width="" align="left" style="  font-weight:bold; background: #BBB; border-right: 1px solid #FFF;">Shipping Point</td>
+					<td  width="" align="left" style="  font-weight:bold; background: #BBB; border-right: 1px solid #FFF;">Shipping Terms</td>
+				</tr>
+				<tr>
+					<td width="" valign="top" ><%= ship_to%></td>
+					<td width="" valign="top" ><%= ex_fact_date%></td>
+					<td width="" valign="top" ><%= wh_arriaval_date%></td>
+					<td width="" valign="top" ><%= delivery_method%></td>
+					<td width="" valign="top" ><%= shipping_pt%></td>
+					<td width="" valign="top" ><%= shipping_term%></td>
+				</tr>
+			</table>
+			<div id="" class="card-1" style="overflow:scroll;background: white;">
+				<table id="" class="display" cellspacing="0" width="100%">
+					<thead>	
+						<tr><td colspan="9"><br><br><br><br></td></tr>
+						<tr>							
+							<th><b>Item</b></th>
+							<th><b>Description</b></th>
+							<th><b>Supplier Reference</b></th>
+							<th style="text-align: right;"><b>Quantity</b></th>
+							<th style="text-align: right;"><b>Purchase Price</b></th>
+							<th style="text-align: right;"><b>Amount</b></th>
+							<th style="text-align: right;"><b>Gross Amt</b></th>
+							<th><b>Tax Code Summary</b></th>
+							<th style="text-align: right;"><b>Tax Amount</b></th>
+						</tr>
+					</thead>
+					<tbody>
+							<% var total_amt=0;%>
+							<% var total_tax=0;%>
+							
+							<% if(line_length>0){ for(var i=0; i < items.length; i++) { %>
+							<tr>
+								<td><%= items[i].item_name_val %></td>
+								<td><%= items[i].description_val %></td>
+								<td>1111</td>
+								<td style="text-align: right;"><%= items[i].quantity_val %></td>
+								<td style="text-align: right;"><%= items[i].rate_val %></td>
+								<td style="text-align: right;"><%= items[i].amount_val %></td>
+								<td style="text-align: right;"><%= ((items[i].amount_val)*(items[i].quantity_val)) %></td>
+								<td><%= items[i].tax_code_summ_val %></td>
+								<td style="text-align: right;"><%= items[i].tax_amt_val %></td>
+								
+								<% total_amt+=items[i].amount_val; %>
+								<% total_tax+= items[i].tax_amt_val; %>
+							</tr>
+							<% }} %>
+							
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>&#160;</th>
+							<th>&#160;</th>
+							<th>&#160;</th>
+							<th>&#160;</th>
+							<th>&#160;</th>
+							<th>&#160;</th>
+							
+							<th style="background: #BBB;"><b>Total Net</b></th>
+							<th style="background: #BBB;"><b>Total Tax</b></th>
+							<th style="background: #BBB;"><b>Total</b></th>
+							
+						</tr>
+						
+						
+						<tr>
+							<th>&#160;</th>
+							<th>&#160;</th>
+							<th>&#160;</th>
+							<th>&#160;</th>
+							<th>&#160;</th>
+							<th>&#160;</th>
+							
+							<th style="text-align: right;"><%= total_amt %></th>
+							<th style="text-align: right;"><%= total_tax %></th>
+							<th style="text-align: right;"><%= total_val %></th>
+								
+						</tr>	
+					</tfoot>
+				</table>
+			</div>
+			<table width="100%" border="0" style="font-family: Arial, Helvetica; font-size: 9pt; background: white;">
+				<tr style="background-image:url(img10.png);">
+					<td colspan="6" style="font-size: 12pt; font-weight:bold; color: blue; text-align:right;"><a class="btn btn-primary btn-sm" href="http://127.0.0.1:3000/refresh?record_type=PurchaseOrder&po_status=none&po_id=<%= po_internal_id%>">Refresh</a> 
+					 <a class="btn btn-primary btn-sm" href="http://127.0.0.1:3000/packinglistcreate?po_ns_id=<%= po_internal_id%>">Create Packing List</a>
+					<% console.log("order_status "+order_status); if(order_status=="Pending Acknowledge") { %>
+					 <a class="btn btn-primary btn-sm" href="http://127.0.0.1:3000/acknowledgePO?po_ns_id=<%= po_internal_id%>">Acknowledge</a> 
+					<%}%>
+					 <a class="btn btn-primary btn-sm" href="http://127.0.0.1:3000/postatusview?po_status=allorder">List</a></td>
+				</tr>
+			</table>
+		</div>	
+	</div>
+	</main>
+
+<footer style="background-image:url(img10.png);">
+	<section id="footer" style="color:white;">
+		<div class="container-fluid navbar-fixed-bottom  navbar-inverse modul-bt-one" align="center">
+			<h1 style="color:white;"></h1>
+			<p style="color:white; font-size: 8pt; text-align:right;"><span style="float:left;"><a style="font-size: 8pt;" href="http://www.cognizant.com">www.Cognizant.com</a></span> &copy; Cognizant Technology Solutions &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		</div>
+	</section>
+</footer>
+<script>
+$(document).ready(function(){
+$('input').blur(function(){
+if($(this).val())
+$(this).addClass('used');
+else
+$(this).removeClass('used');
+});
+});
+</script>
+<script type="text/javascript" src="js/vendors/jquery.slimscroll.min.js"></script><script type="text/javascript" src="js/vendors/jquery.scrollUp.js"></script><script type="text/javascript" src="js/vendors/jquery.stickup.min.js"></script><script type="text/javascript" src="js/application.js"></script><script type="text/javascript">//enabling stickUp on the '.navbar-wrapper' class
+$(function() {
+  $('#top-nav').stickUp({
+    parts: {
+      0: 'wrapper',
+      1: 'service1',
+      2: 'advert1',
+      3: 'portfolio',
+      4: 'advert2',
+      5: 'wrapper2',
+      6: 'advert3',
+      7: 'price',
+      8: 'advert4',
+      9: 'client',
+      10: 'advert5'
+    },
+    itemClass: 'menuItem',
+    itemHover: 'active',
+    topMargin: 'auto'
+  });
+});
+
+// In mobile browser, navbar collapse when click on 'a'.
+$('.navbar.navbar-inverse.navbar-static-top a').click(function() {
+  $('.navbar-collapse').addClass('hideClass');
+});
+
+
+$('.navbar.navbar-inverse.navbar-static-top a').click(function() {
+  $('.navbar-collapse').addClass('collapse');
+});
+
+
+$('.navbar.navbar-inverse.navbar-static-top a').click(function() {
+  $('.navbar-collapse').removeClass('in');
+});
+
+$('.navbar-toggle').click(function() {
+  $('.navbar-collapse').removeClass('hideClass');
+});
+
+// Smoth page scroll
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top - 45
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});</script><script type="text/javascript" src="js/vendors/jquery.mixitup.js"></script><script type="text/javascript" src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script><script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script><script type="text/javascript" src="showbizpro/js/jquery.themepunch.showbizpro.min.js"></script><script type="text/javascript">jQuery(document).ready(function() {
+  //- Slider Options
+  jQuery('.tp-banner').revolution({
+    delay: 90000,
+    startwidth: 1170,
+    startheight: 500,
+    hideThumbs: 10,
+    fullScreen: "on",
+    fullScreenAlignForce: "on",
+    fullScreenOffsetContainer: ".navigation-menu"
+  });
+  jQuery('.tp-banner-two').revolution({
+    delay: 9000000,
+    startwidth: 1200,
+    startheight: 356,
+    hideThumbs: 200,
+    thumbWidth: 100,
+    thumbHeight: 50,
+    thumbAmount: 3,
+    navigationType: "none", // use none, bullet or thumb
+    soloArrowLeftHalign: "left", // left,center,right
+    soloArrowLeftValign: "center", // top,center,bottom
+    soloArrowLeftHOffset: 0, // offset position from aligned position
+    soloArrowLeftVOffset: 0, // offset position from aligned position
+    soloArrowRightHalign: "right", // left,center,right
+    soloArrowRightValign: "center", // top,center,bottom
+    soloArrowRightHOffset: 0, // offset position from aligned position
+    soloArrowRightVOffset: 0, // offset position from aligned position
+    touchenabled: "on",
+    onHoverStop: "on"
+  }); //ready
+
+  //- Portfolio Filter
+  jQuery('#Grid').mixitup();
+
+  //- Carusel Slider
+  jQuery('#example6').showbizpro({
+    dragAndScroll: "off",
+    visibleElementsArray: [4, 4, 1, 1],
+    carousel: "on",
+    entrySizeOffset: 0,
+    allEntryAtOnce: "off",
+    rewindFromEnd: "off",
+    autoPlay: "off",
+    delay: 2000,
+    speed: 500
+  });
+  jQuery('#example7').showbizpro({
+    dragAndScroll: "off",
+    visibleElementsArray: [2, 2, 1, 1],
+    carousel: "on",
+    entrySizeOffset: 0,
+    allEntryAtOnce: "off",
+    rewindFromEnd: "off",
+    autoPlay: "off",
+    delay: 2000,
+    speed: 500
+  });
+});
+</script></body></html>	

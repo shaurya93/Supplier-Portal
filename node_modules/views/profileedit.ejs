@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="js no-touch">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="HandheldFriendly" content="True">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Design Tamplate">
+<meta name="csrf-token">
+<meta name="author" content="Honglio">
+
+<title>Profile</title>
+<link rel="stylesheet" href="css/lib/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="css/lib/flat-ui.css" type="text/css">
+<link rel="stylesheet" href="css/base.css" type="text/css">
+<link rel="stylesheet" href="css/style-green.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<link rel="stylesheet" href="css/materialize.css" type="text/css">
+
+
+<!--
+<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="css/lib/material.css">
+<link rel="stylesheet" href="css/lib/font-awesome.min.css" type="text/css"> 
+<link rel="stylesheet" href="css/lib/ripples.css">
+-->
+<!-- Slider -->
+<link rel="stylesheet" href="rs-plugin/css/settings.css" type="text/css">
+<link rel="stylesheet" href="showbizpro/css/settings.css" type="text/css" media="screen">
+<!--[if lt IE 9]>
+<script src="js/vendors/html5shiv.js"></script>
+<![endif]-->
+<!--[if lt IE 10]>
+<script src="js/vendors/jquery.placeholder.js"></script>
+<![endif]-->
+<!-- JS -->
+<!--
+<script type="text/javascript" src="js/vendors/modernizr.custom.js"></script>
+<script type="text/javascript" src="js/vendors/toucheffects.js"></script>
+<script type="text/javascript" src="js/vendors/jquery.js"></script>
+<script type="text/javascript" src="js/vendors/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="js/vendors/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="js/vendors/bootstrap.js"></script>
+<script type="text/javascript" src="js/vendors/material.js"></script>
+<script type="text/javascript" src="js/vendors/ripples.js"></script>
+<script type="text/javascript" src="js/vendors/less-1.7.5.min.js"></script>-->
+<script src="js/skel.min.js">
+		{
+			prefix: 'css/style',
+			preloadStyleSheets: true,
+			resetCSS: true,
+			boxModel: 'border',
+			grid: { gutters: 30 },
+			breakpoints: {
+				wide: { range: '1200-', containers: 1140, grid: { gutters: 50 } },
+				narrow: { range: '481-1199', containers: 960 },
+				mobile: { range: '-480', containers: 'fluid', lockViewport: true, grid: { collapse: true } }
+			}
+		}
+</script>
+<style>
+table.ex1 {
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+</style>
+</head>
+
+<body style="background-image:url(img10.png);>
+  <div id="header_container">		
+		<div class="container">
+			<div id="header" class="row">
+				<nav class="navbar navbar-fixed-top navbar-inverse">
+					<div class="container">
+						<table >
+							<tr>
+								<td width="25%">
+									<img class="8u" src="img/sp.png"/>
+								</td>
+								<td width="55%">
+									<ul class="nav">
+                                  <li class="drop"><a style="padding:0px 15px;" href="http://127.0.0.1:3000/dashboard?vendorid=<%= v_id%>">Home</a></li>
+									  <li class="drop" style="padding: 0px 15px;">Order
+										<ul class="nav">
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=Pending Acknowledge">Pending Acknowledge</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=Acknowledged">Acknowledged</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=Pending Delivery">Pending Delivery</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=Pending Billing">Pending Bill</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=Fully Billed">Fully Billed</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/postatusview?po_status=allorder">All Orders</a></li>
+										</ul>
+									  </li>
+									  <li class="drop" style="padding: 0px 15px;">Packing List
+										<ul class="nav">
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/packingliststatusview?status=Ready to Ship">Ready to Ship</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/packingliststatusview?status=Shipped">Shipped</a></li>
+										</ul>
+									  </li>
+									  <li class="drop" style="padding: 0px 15px;">Payables
+										<ul class="nav">
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/billlistview">Bills</a></li>
+										</ul>
+									  </li>
+									  <li class="drop" style="padding: 0px 15px;">My Account
+										<ul class="nav">
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/profileview?vendorid=<%= v_id%>">View/Update Profile</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/changepassword?vendorid=<%= v_id%>">Change Password</a></li>
+						  <li style="background: rgb(142, 36, 170);"><a href="http://127.0.0.1:3000/signout">Sign Out</a></li>
+										</ul>
+									  </li>
+									</ul>	
+								</td>
+								<td width="20%">
+									<img class="8u" src="img/cognizant-logo.png"/>
+								</td>
+							</tr>
+						</table>						
+					</div>
+				</nav>
+			</div>
+		</div>	
+    </div>
+    
+    
+    <main >
+        <div class="container-fluid navbar-inverse modul-bt-one" align="center">
+            <h3>&nbsp;</h3>
+        </div>
+        <div height="700px" id="advert3" align="left" style="background-image:url(img10.png); color:#0D47A1;">
+                       
+            <div  class="transparent" style="overflow:scroll; background-color:white; height:700px;">
+			
+			<form id="contact" method="post">
+                <table class= "ex1" width="100%" border="1"  style="font-family: Arial, Helvetica; font-size: 9pt; background-color:white;">
+                    <tr>
+                        
+						<td colspan="6" style="font-size: 12pt; font-weight:bold; color: blue; text-align:right;"><input type="submit" class="btn btn-primary btn-sm btn-sz" name="Save" value="Save" id="Save"> <a class="btn btn-primary btn-sm" href="http://127.0.0.1:3000/profileview?vendorid=<%= v_id%>">Cancel</a></td>
+						
+							</td>
+                    </tr>
+                    <tr>
+                        <td  colspan="5" style=" font-size: 18pt; font-weight:bold; background: #AAA;">Supplier Profile# 11111111</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"><span style="font-weight:bold;">Name:</span> <%= name%></td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="font-weight:bold; background: #BBB; border-right: 1px solid #FFF;">Address</td>
+                        <td align="left" style="font-weight:bold; background: #BBB; border-right: 1px solid #FFF;">Email</td>
+                        <td align="left" style="font-weight:bold; background: #BBB; border-right: 1px solid #FFF;">Phone</td>
+                        <td align="left" style="font-weight:bold; background: #BBB; border-right: 1px solid #FFF;">Alt. Phone</td>
+                        <td align="left" style="font-weight:bold; background: #BBB;">Fax</td>
+                    </tr>
+                    <tr>
+                       <td  valign="top" ><input  type="text" id="id_address" name="address" value="<%= address%>"></td>
+							<td  valign="top" ><input  type="text" id="id_email" name="email" value="<%= email%>" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="john@cts.com" required></td>
+							<td  valign="top" ><input  type="text" id="id_phone" name="phone" value="<%= phone%>" ></td>
+							<td  valign="top" ><input  type="text" id="id_altphone" name="altphone" value="<%= altphone%>" ></td>
+							<td  valign="top" ><input  type="text" id="id_fax" name="fax" value="<%= fax%>"></td>
+                    </tr>
+                    
+                </table>
+				
+					<input  type="hidden" id="vendor_ns_id" name="ns_id" value=<%= ns_id%> >
+					
+				</form>
+            </div>
+</div>
+
+</main>
+
+<footer style="background-image:url(img10.png);">
+	<section id="footer" style="color:white;">
+		<div class="container-fluid navbar-fixed-bottom  navbar-inverse modul-bt-one" align="center">
+			<h1 style="color:white;"></h1>
+			<p style="color:white; font-size: 8pt; text-align:right;"><span style="float:left;"><a style="font-size: 8pt;" href="http://www.cognizant.com">www.Cognizant.com</a></span> &copy; Cognizant Technology Solutions &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		</div>
+	</section>
+</footer>
+<script>
+$(document).ready(function(){
+$('input').blur(function(){
+if($(this).val())
+$(this).addClass('used');
+else
+$(this).removeClass('used');
+});
+});
+</script>
+ <script>
+$(document).ready(function() {
+    $('#Save').click(function(event){
+
+	
+        data_phn = $('#id_phone').val();
+       
+       var number= data_phn.replace(/[^\d]/g, '');
+		//alert('in number:'+number.length);
+		
+		data_altphn = $('#id_altphone').val();
+        
+       var number_alt= data_altphn.replace(/[^\d]/g, '');
+		//alert('in number_alt:'+number_alt.length);
+		
+		 data_fax = $('#id_fax').val();
+		 
+       var number_fax= data_fax.replace(/[^\d]/g, '');
+		//alert('in number_fax:'+number_fax.length);
+
+		var invalid_number = new Array();
+		var invalid=false;
+		
+	   if(number.length < 9 || number.length >= 12)
+	   { 
+			invalid_number.push('Phone Number');
+			invalid=true;
+			
+	   }
+	   if(number_alt.length < 9 || number_alt.length >= 12)
+	   {
+			invalid_number.push('Alternate Phone Number');
+			invalid=true;
+			
+	   }
+	   if(number_fax.length < 9 || number_fax.length >= 12)
+	   {
+			invalid_number.push('Fax');
+			invalid=true;
+				
+	   }
+	   
+	   if(invalid)
+	   {
+	   var h_v='is';
+			   event.preventDefault();
+			   if(invalid_number.length>1)
+			   {
+					var h_v='are';
+			   }
+			  
+			   var err_msg= invalid_number+' '+h_v+' in invalid format. Please enter value having minimum 10 or maximum 12 digits.';
+			   document.getElementById("err_pr").innerHTML = err_msg;
+			   $('#invalid_format').show();
+	   }
+	   
+	   
+	   
+
+    });
+});   
+ </script> 
+<script type="text/javascript" src="js/vendors/jquery.slimscroll.min.js"></script><script type="text/javascript" src="js/vendors/jquery.scrollUp.js"></script><script type="text/javascript" src="js/vendors/jquery.stickup.min.js"></script><script type="text/javascript" src="js/application.js"></script><script type="text/javascript">//enabling stickUp on the '.navbar-wrapper' class
+$(function() {
+  $('#top-nav').stickUp({
+    parts: {
+      0: 'wrapper',
+      1: 'service1',
+      2: 'advert1',
+      3: 'portfolio',
+      4: 'advert2',
+      5: 'wrapper2',
+      6: 'advert3',
+      7: 'price',
+      8: 'advert4',
+      9: 'client',
+      10: 'advert5'
+    },
+    itemClass: 'menuItem',
+    itemHover: 'active',
+    topMargin: 'auto'
+  });
+});
+
+// In mobile browser, navbar collapse when click on 'a'.
+$('.navbar.navbar-inverse.navbar-static-top a').click(function() {
+  $('.navbar-collapse').addClass('hideClass');
+});
+
+
+$('.navbar.navbar-inverse.navbar-static-top a').click(function() {
+  $('.navbar-collapse').addClass('collapse');
+});
+
+
+$('.navbar.navbar-inverse.navbar-static-top a').click(function() {
+  $('.navbar-collapse').removeClass('in');
+});
+
+$('.navbar-toggle').click(function() {
+  $('.navbar-collapse').removeClass('hideClass');
+});
+
+// Smoth page scroll
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top - 45
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});</script><script type="text/javascript" src="js/vendors/jquery.mixitup.js"></script><script type="text/javascript" src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script><script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script><script type="text/javascript" src="showbizpro/js/jquery.themepunch.showbizpro.min.js"></script><script type="text/javascript">jQuery(document).ready(function() {
+  //- Slider Options
+  jQuery('.tp-banner').revolution({
+    delay: 90000,
+    startwidth: 1170,
+    startheight: 500,
+    hideThumbs: 10,
+    fullScreen: "on",
+    fullScreenAlignForce: "on",
+    fullScreenOffsetContainer: ".navigation-menu"
+  });
+  jQuery('.tp-banner-two').revolution({
+    delay: 9000000,
+    startwidth: 1200,
+    startheight: 356,
+    hideThumbs: 200,
+    thumbWidth: 100,
+    thumbHeight: 50,
+    thumbAmount: 3,
+    navigationType: "none", // use none, bullet or thumb
+    soloArrowLeftHalign: "left", // left,center,right
+    soloArrowLeftValign: "center", // top,center,bottom
+    soloArrowLeftHOffset: 0, // offset position from aligned position
+    soloArrowLeftVOffset: 0, // offset position from aligned position
+    soloArrowRightHalign: "right", // left,center,right
+    soloArrowRightValign: "center", // top,center,bottom
+    soloArrowRightHOffset: 0, // offset position from aligned position
+    soloArrowRightVOffset: 0, // offset position from aligned position
+    touchenabled: "on",
+    onHoverStop: "on"
+  }); //ready
+
+  //- Portfolio Filter
+  jQuery('#Grid').mixitup();
+
+  //- Carusel Slider
+  jQuery('#example6').showbizpro({
+    dragAndScroll: "off",
+    visibleElementsArray: [4, 4, 1, 1],
+    carousel: "on",
+    entrySizeOffset: 0,
+    allEntryAtOnce: "off",
+    rewindFromEnd: "off",
+    autoPlay: "off",
+    delay: 2000,
+    speed: 500
+  });
+  jQuery('#example7').showbizpro({
+    dragAndScroll: "off",
+    visibleElementsArray: [2, 2, 1, 1],
+    carousel: "on",
+    entrySizeOffset: 0,
+    allEntryAtOnce: "off",
+    rewindFromEnd: "off",
+    autoPlay: "off",
+    delay: 2000,
+    speed: 500
+  });
+});
+</script></body></html>
